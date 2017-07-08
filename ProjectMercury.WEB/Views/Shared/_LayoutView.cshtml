@@ -1,0 +1,265 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().SiteAdi Project Mercury V.1.5</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Project Mercury V.1.5 E-Ticaret Sistemi">
+    <meta name="author" content="Seçkin Umur" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="@ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().Logo" type="image/x-icon">
+    <link rel="icon" href="@ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().Logo" type="image/x-icon">
+
+    <link href="~/Content/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/owl.carousel.min.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/owl.theme.default.min.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/animate.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/swiper.css" type="text/css" rel="stylesheet" />
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="~/Content/css/default.css" />
+    <link href="~/Content/css/roboto.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/roboto2.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/roboto3.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="navbar yamm navbar-default">
+        <div class="container">
+            <div class="topBar">
+                <div class="container">
+                    <a href="javascript:void(0);" class="pull-left"><i class="fa fa-flask mr-5"></i> ©2017 Choice Corporation Project Mercury V.1.5 (Beta)</a>
+                </div>
+            </div>
+            <div class="row display-table">
+
+                <div class="col-xs-3 vertical-align hidden-xs">
+                    <a href="javascript:void(0);">
+                        <img height="90" src="@ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().Logo" class="pull-right img-responsive" alt="Project Mercury" />
+                    </a>
+                </div>
+
+                <div class="col-xs-9 vertical-align text-center">
+                    <form>
+                        <div class="row grid-space-1">
+                            <div class="col-sm-6">
+                                <input type="text" name="keyword" class="form-control input-lg" placeholder="Bir Ürün Arayın...">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="submit" class="btn btn-default btn-block btn-lg" value="Ara">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target="#navbar-collapse-3" class="navbar-toggle">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="javascript:void(0);" class="navbar-brand visible-xs">
+                    <img height="47" src="@ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().Logo" alt="logo">
+                </a>
+            </div>
+            <div id="navbar-collapse-3" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Menüler -->
+                    <li class="dropdown active">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Ana Sayfa <i class="glyphicon glyphicon-home"></i></a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            Kategoriler<i class="fa fa-bars ml-5"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            @{
+                                foreach (var item in ProjectMercury.DAL.Repository.KategoriRepo.Kategoriler())
+                                {
+                                    <li>
+                                        <a href="~/Product/KategoriListele/@item.KategoriID"><i class="fa fa-database"></i> @item.KategoriAdi</a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </li>
+
+                    <li class="dropdown active">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"> @ViewBag.User <i class="fa fa-user mr-5"></i></a>
+                        <ul role="menu" class="dropdown-menu">
+                            @{
+                                if (ViewBag.User == "Misafir Kullanıcı")
+                                {
+                                    <li><a href="~/Admin/Login">Sisteme Giriş Yap <i class="fa fa-user mr-5"></i></a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="home-v1.html">@ViewBag.User <i class="fa fa-user mr-5"></i></a></li>
+                                    <li><a href="home-v2.html">Siparişlerim <i class="glyphicon glyphicon-shopping-cart mr-5"></i></a></li>
+                                    <li><a href="home-v3.html">Çıkış Yap <i class="glyphicon glyphicon-log-out mr-5"></i></a></li>
+                                }
+                            }
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown active">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Sepet <i class="glyphicon glyphicon-shopping-cart ml-5"></i></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="#">Lorem Ipsum dolor sit <strong>1 Adet</strong> <span class="price text-primary">₺59.99</span></a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="icon-boxes style1">
+                        <div class="icon">
+                            <i class="fa fa-truck text-gray"></i>
+                        </div>
+                        <div class="box-content">
+                            <h6 class="alt-font text-light text-uppercase">Anlaşmalı Kargo</h6>
+                            <p class="text-gray">Firmamız en uygun ücretle anlaşılan kargo şirketini kullanır</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="icon-boxes style1">
+                        <div class="icon">
+                            <i class="fa fa-life-ring text-gray"></i>
+                        </div>
+                        <div class="box-content">
+                            <h6 class="alt-font text-light text-uppercase">Destek 24/7</h6>
+                            <p class="text-gray">Sistem arıza tanıma sistemi sayesinde her zaman her saat destek</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="icon-boxes style1">
+                        <div class="icon">
+                            <i class="fa fa-gift text-gray"></i>
+                        </div>
+                        <div class="box-content">
+                            <h6 class="alt-font text-light text-uppercase">Avantajlı Ürünler</h6>
+                            <p class="text-gray">Sistem Kullandığı yapay zeka sayasinde günlük ve haftalık avantajlı ürünler sunar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="icon-boxes style1">
+                        <div class="icon">
+                            <i class="fa fa-credit-card text-gray"></i>
+                        </div>
+                        <div class="box-content">
+                            <h6 class="alt-font text-light text-uppercase">Ödeme Güvenliği</h6>
+                            <p class="text-gray">Kredi Kartı üzerinden ödeme olmadığından daha güvenilir alışveriş ortamı sağlar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="spacer-30">
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <h5 class="title">@ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().SiteAdi</h5>
+                    <ul class="items">
+                        <li>Adres: @ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().Adres</li>
+                        <li>Telefon: @ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().Telefon</li>
+                    </ul>
+                    <hr class="spacer-10 no-border">
+                    <h5 class="title">Sosyal Ağlar</h5>
+                    <br>
+                    <ul class="social-icons style2">
+                        <li class="facebook"><a class="semi-circle" href="@ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter"><a class="semi-circle" href="@ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li class="instagram"><a class="semi-circle" href="@ProjectMercury.DAL.Repository.SiteBilgileriRepo.Goster().Instagram"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-8">
+                    <h5 class="title">Güvenlik & Gizlilik</h5>
+                    <div class="panel-group accordion style2" id="accordionStyle2" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingOneStyle2" role="tab">
+                                <h4 class="panel-title">
+                                    <a aria-expanded="true" aria-controls="collapseOneStyle2" href="#collapseOneStyle2" data-toggle="collapse" data-parent="#accordionStyle2">
+                                        Choice Corporation Güvenlik İlkesi
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse collapse in" id="collapseOneStyle2" role="tabpanel" aria-expanded="true" aria-labelledby="headingOneStyle2">
+                                <div class="panel-body">
+                                    <p>Choice Corp. Bu Yazılımı En Son ASP.NET MVC Teknolojilerini Kullanarak Geliştirmiştir. Ve Güvenlik Protokollerini Eksiksiz Uygular.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingTwoStyle2" role="tab">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" aria-expanded="false" aria-controls="collapseTwoStyle2" href="#collapseTwoStyle2" data-toggle="collapse" data-parent="#accordionStyle2">
+                                        Choice Corporation Gizlilik İlkesi
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse collapse" id="collapseTwoStyle2" role="tabpanel" aria-expanded="false" aria-labelledby="headingTwoStyle2" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>Choice Corp. Kullanıcı bilgilerinin İzinsiz Kullanılmasına Karşıdır. Geliştiridiği Sistemlerde Kullanıcı Verileri İzinsiz Kullanılamaz.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingThreeStyle2" role="tab">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" aria-expanded="false" aria-controls="collapseThreeStyle2" href="#collapseThreeStyle2" data-toggle="collapse" data-parent="#accordionStyle2">
+                                        Choice Corporation Kullanıcı Verileri Kullanımı İlkesi
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse collapse" id="collapseThreeStyle2" role="tabpanel" aria-expanded="false" aria-labelledby="headingThreeStyle2" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>Choice Corp. Hiçbir Şekilde Kullanıcı Verilerini Toplamaz Veya Dağıtmaz. Bu Yüzden Kesinlikle TC Kimlik No Ve Anne Kızlık Soyadı Ve Diğer Kimlik Bilgilerini Kaydetmez. Kaydedilmesine İzin Vermez.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="spacer-30">
+
+            <div class="row text-center">
+                <div class="col-sm-12">
+                    <p class="text-sm">&COPY; 2017 <a href="www.seckinumur.com" target="_blank">Choice Corporation</a> All Right Reserved </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.downCount.js"></script>
+    <script type="text/javascript" src="~/Scripts/nouislider.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.sticky.js"></script>
+    <script type="text/javascript" src="~/Scripts/pace.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/wow.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/swiper.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+</body>
+</html>
